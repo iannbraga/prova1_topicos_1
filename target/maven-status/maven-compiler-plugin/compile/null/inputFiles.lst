@@ -1,6 +1,6 @@
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/Address/City.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/Address/Country.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/user/User.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/Address/Address.java
+/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/Address/CityModel.java
+/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/Address/AddressModel.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/user/Role.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/GreetingResource.java
+/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/user/UserModel.java
+/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/Address/StateModel.java

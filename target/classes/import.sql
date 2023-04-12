@@ -1,0 +1,1 @@
+insert into user (username,password,role) values ("braga","braga",1);

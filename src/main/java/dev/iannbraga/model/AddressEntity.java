@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "addresses")
+@Table(name = "address")
 public class AddressEntity extends DefaultEntity{
     
     private String address;

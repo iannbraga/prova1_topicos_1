@@ -2,7 +2,6 @@ package dev.iannbraga.model;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -12,7 +11,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "people")
+@Table(name = "person")
 public class PersonEntity extends DefaultEntity{
     
     private String firstName;

@@ -10,9 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import dev.iannbraga.model.CityEntity;
-import dev.iannbraga.model.StateEntity;
 import dev.iannbraga.repository.CityRepository;
-import dev.iannbraga.repository.StateRepository;
 
 @Path("/cities")
 @Consumes(MediaType.APPLICATION_JSON)

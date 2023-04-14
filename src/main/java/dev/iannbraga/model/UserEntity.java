@@ -2,6 +2,8 @@ package dev.iannbraga.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,9 +22,10 @@ public class UserEntity extends DefaultEntity{
     
     private String password;
 
-    // TODO Relacionamento entre User e Role
-    // private Role role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private PersonEntity person;
+    // Não necessário
+    // @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private PersonEntity person;
 }

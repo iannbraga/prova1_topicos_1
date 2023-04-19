@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import dev.iannbraga.model.CityEntity;
+import dev.iannbraga.model.address.CityEntity;
 import dev.iannbraga.repository.CityRepository;
 
 @Path("/cities")

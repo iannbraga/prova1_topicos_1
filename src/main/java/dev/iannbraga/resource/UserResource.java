@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
-import dev.iannbraga.model.UserEntity;
+import dev.iannbraga.model.user.UserEntity;
 import dev.iannbraga.repository.UserRepository;
 
 @Path("/users")

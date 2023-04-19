@@ -1,0 +1,133 @@
+@startuml eCommmerce
+
+    class ProductGeek{
+        - id : Long
+        - description : String
+        - categories : Categories
+        - origin : String
+        - rating : String
+        - model : String
+        - price : Double
+        - stock : Int
+    }
+    class Categories{
+        - id : Long
+        - description : String
+        - categoryProducts : List<ProductGeek>
+        - categorySale : Sale
+    }
+    class Customer{
+        - id : Long
+        - firstName : String 
+        - lastName: String
+        - age : Int
+            isLegalAge()
+        - gender : String
+        - birthDay : Date
+        - address : Address
+        - cellphone : Phone
+        - whatsapp : Phone
+    }
+    class User{
+        - id : Long  
+        - customer : Customer
+        - email : String
+        - password : String
+    }
+
+    class Phone{
+        - id : Long
+        - ddd : String
+        - number : String
+    }
+
+    class Sale{
+        - id : Long
+        - description : String
+        - durationTime : Int
+        - productsOnSale : List<ProductGeek>
+        - productDiscount : Double
+        - availableLocation : String
+    }
+
+    class PaymentCard{
+        - isDebitCard : Boolean
+        - cardNumber : Int
+        - securityCode : Int
+        - expirationDate : Date
+        - nameInCard : String
+    }
+
+    class Address{
+        - id : Long
+        - principal : Boolean
+        - logradouro : String
+        - bairro : String
+        - numero  : String
+        - complement : String
+        - postalCode : String
+        - city : String
+        - state : String
+        - country : String
+    }
+
+    class BuyProduct{
+        - id : Long
+        - product : ProductGeek
+        - quantity : Integer
+        - payMeth : Payment
+        - totalPrice : Double
+    }
+
+    class BuyCart{
+        - productsInCart : List<BuyProduct>
+    }
+
+    class WishList{
+        - id : Long
+        - description : String
+        - salesInWishList : List<Sale>
+        - wishList : List<ProductGeek>
+    }
+    
+     enum Payment{
+        DEBITCARD : PaymentCard
+        CREDITCARD : PaymentCard
+        BILLPAYMENT : String
+        PIX : String
+     }
+
+    class Buy{
+        - id : Long
+        - buyDate : Date
+        - productPrice : Double
+        - shippingPrice : Double
+        - totalValue : Double
+        - address : Address
+    }
+
+    User "*"-->"*" ProductGeek : wishList()
+    User "1"*-->"1" BuyCart
+    User "1"*-->"1" Customer
+    User "1"*-->"*" WishList
+
+    Buy "1"*-->"*" BuyProduct
+    Buy "*"-->"1" User
+
+    BuyProduct "*"-->"1" ProductGeek
+
+    ProductGeek "*"-->"1" Sale
+    ProductGeek "1"-->"*" Categories
+   
+    Customer "1"*-up->"*" Phone  
+    Customer "1"*-->"*" Address
+
+    BuyProduct "*"*-->"1" Payment
+
+     PaymentCard "*"*-->"1" Customer
+@enduml
+
+'CRUD (CUSTOMER(E TODOS EM COMPOSIÇÃO A ELE), ADDRESS, PRODUTO ESPECÍFICO, CIDADE E ESTADO, USER, PRODUTOS)
+'ENUM DE PRODUTO
+
+

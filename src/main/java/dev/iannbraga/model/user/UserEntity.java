@@ -1,12 +1,11 @@
-package dev.iannbraga.model;
+package dev.iannbraga.model.user;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import dev.iannbraga.model.DefaultEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

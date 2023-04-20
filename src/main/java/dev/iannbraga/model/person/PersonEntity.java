@@ -17,6 +17,7 @@ import lombok.Data;
 @Table(name = "person")
 public class PersonEntity extends DefaultEntity{
     
+    @Column(name = "first_name")
     private String firstName;
     
     @Column(name = "last_name")
@@ -26,6 +27,7 @@ public class PersonEntity extends DefaultEntity{
 
     private String rg;
 
+    @Column(name = "date_of_birth")
     private LocalDateTime dateOfBirth;
 
     @OneToOne

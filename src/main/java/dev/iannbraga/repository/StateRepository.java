@@ -11,7 +11,9 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 public class StateRepository implements PanacheRepository<StateEntity>{       
     
     public List<StateEntity> findByName(String name){
+        if(name == null) return null;
+
         String value = "%"+name.toUpperCase()+"%";
         return list("UPPER(name) like ?1", value);
-    } 
+    }
 }

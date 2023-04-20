@@ -10,7 +10,9 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 @ApplicationScoped
 public class CityRepository implements PanacheRepository<CityEntity>{
 
-    List<CityEntity> findByName(String name){
+    public List<CityEntity> findByName(String name){
+        if(name == null) return null;
+
         String value = "%"+name.toUpperCase()+"%";
         return list("UPPER(name) like ?1", value);
     }

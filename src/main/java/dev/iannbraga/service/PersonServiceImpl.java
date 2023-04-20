@@ -1,5 +1,8 @@
 package dev.iannbraga.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -66,7 +69,7 @@ public class PersonServiceImpl implements PersonService{
         entity.setLastName(receivedEntity.lastName());
         entity.setCpf(receivedEntity.cpf());
         entity.setRg(receivedEntity.rg());
-        entity.setDateOfBirth(receivedEntity.dateOfBirth());
+        entity.setDateOfBirth(convertStringToDate(receivedEntity.dateOfBirth()));
         entity.setUser(userRepository.findById(receivedEntity.idUser()));
 
         personRepository.persist(entity);
@@ -84,7 +87,7 @@ public class PersonServiceImpl implements PersonService{
         entity.setLastName(receivedEntity.lastName());
         entity.setCpf(receivedEntity.cpf());
         entity.setRg(receivedEntity.rg());
-        entity.setDateOfBirth(receivedEntity.dateOfBirth());
+        entity.setDateOfBirth(convertStringToDate(receivedEntity.dateOfBirth()));
         entity.setUser(userRepository.findById(receivedEntity.idUser()));
 
         return new PersonResponseDTO(entity);
@@ -105,6 +108,12 @@ public class PersonServiceImpl implements PersonService{
         Set<ConstraintViolation<PersonDTO>> violations = validator.validate(entity);
         if (!violations.isEmpty())
             throw new ConstraintViolationException(violations);
+    }
+
+    public LocalDateTime convertStringToDate(String date){
+        DateTimeFormatter parser = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        LocalDateTime dateTime = LocalDate.parse(date, parser).atStartOfDay();
+        return dateTime;
     }
     
 }

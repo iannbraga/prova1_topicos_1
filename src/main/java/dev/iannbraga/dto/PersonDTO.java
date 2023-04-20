@@ -20,7 +20,7 @@ public record PersonDTO(
     String rg,
 
     @NotBlank(message = "O campo dateOfBirth deve ser informado.")
-    LocalDateTime dateOfBirth,
+    String dateOfBirth,
     
     @NotNull(message = "O campo email deve ser informado.")
     Long idUser

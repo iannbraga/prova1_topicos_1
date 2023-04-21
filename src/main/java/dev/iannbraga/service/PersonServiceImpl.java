@@ -18,6 +18,7 @@ import javax.ws.rs.NotFoundException;
 import dev.iannbraga.dto.PersonDTO;
 import dev.iannbraga.dto.PersonResponseDTO;
 import dev.iannbraga.model.person.PersonEntity;
+import dev.iannbraga.repository.AddressRepository;
 import dev.iannbraga.repository.PersonRepository;
 import dev.iannbraga.repository.UserRepository;
 
@@ -29,7 +30,7 @@ public class PersonServiceImpl implements PersonService{
 
     @Inject
     private UserRepository userRepository;
-
+    
     @Inject
     private Validator validator;
 
@@ -71,6 +72,7 @@ public class PersonServiceImpl implements PersonService{
         entity.setRg(receivedEntity.rg());
         entity.setDateOfBirth(convertStringToDate(receivedEntity.dateOfBirth()));
         entity.setUser(userRepository.findById(receivedEntity.idUser()));
+        // TODO Address
 
         personRepository.persist(entity);
         
@@ -89,6 +91,7 @@ public class PersonServiceImpl implements PersonService{
         entity.setRg(receivedEntity.rg());
         entity.setDateOfBirth(convertStringToDate(receivedEntity.dateOfBirth()));
         entity.setUser(userRepository.findById(receivedEntity.idUser()));
+        // TODO Address
 
         return new PersonResponseDTO(entity);
     }

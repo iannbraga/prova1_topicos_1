@@ -9,7 +9,7 @@ import lombok.Setter;
 @MappedSuperclass
 @Getter
 @Setter
-public class Product extends DefaultEntity{
+public class ProductEntity extends DefaultEntity{
  
     private String description;
 

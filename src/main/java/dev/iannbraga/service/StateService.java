@@ -2,8 +2,8 @@ package dev.iannbraga.service;
 
 import java.util.List;
 
-import dev.iannbraga.dto.StateDTO;
-import dev.iannbraga.dto.StateResponseDTO;
+import dev.iannbraga.dto.address.StateDTO;
+import dev.iannbraga.dto.address.StateResponseDTO;
 
 public interface StateService {
 

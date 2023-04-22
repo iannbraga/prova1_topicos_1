@@ -19,8 +19,8 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import dev.iannbraga.application.Result;
-import dev.iannbraga.dto.UserDTO;
-import dev.iannbraga.dto.UserResponseDTO;
+import dev.iannbraga.dto.user.UserDTO;
+import dev.iannbraga.dto.user.UserResponseDTO;
 import dev.iannbraga.service.UserServiceImpl;
 
 @Path("/users")

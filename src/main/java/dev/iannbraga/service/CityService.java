@@ -2,8 +2,8 @@ package dev.iannbraga.service;
 
 import java.util.List;
 
-import dev.iannbraga.dto.CityResponseDTO;
-import dev.iannbraga.dto.CityDTO;
+import dev.iannbraga.dto.address.CityDTO;
+import dev.iannbraga.dto.address.CityResponseDTO;
 
 public interface CityService {
 

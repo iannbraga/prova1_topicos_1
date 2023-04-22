@@ -12,8 +12,8 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 import javax.ws.rs.NotFoundException;
 
-import dev.iannbraga.dto.PipeProductDTO;
-import dev.iannbraga.dto.PipeProductResponseDTO;
+import dev.iannbraga.dto.product.PipeProductDTO;
+import dev.iannbraga.dto.product.PipeProductResponseDTO;
 import dev.iannbraga.model.product.PipeProduct;
 import dev.iannbraga.repository.PipeProductRepository;
 

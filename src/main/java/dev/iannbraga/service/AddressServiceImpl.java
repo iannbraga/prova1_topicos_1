@@ -12,9 +12,8 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 import javax.ws.rs.NotFoundException;
 
-import dev.iannbraga.dto.AddressDTO;
-import dev.iannbraga.dto.AddressResponseDTO;
-import dev.iannbraga.dto.AddressDTO;
+import dev.iannbraga.dto.address.AddressDTO;
+import dev.iannbraga.dto.address.AddressResponseDTO;
 import dev.iannbraga.model.address.AddressEntity;
 import dev.iannbraga.repository.AddressRepository;
 import dev.iannbraga.repository.CityRepository;

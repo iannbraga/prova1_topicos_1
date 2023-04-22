@@ -19,8 +19,8 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import dev.iannbraga.application.Result;
-import dev.iannbraga.dto.AddressDTO;
-import dev.iannbraga.dto.AddressResponseDTO;
+import dev.iannbraga.dto.address.AddressDTO;
+import dev.iannbraga.dto.address.AddressResponseDTO;
 import dev.iannbraga.service.AddressServiceImpl;
 
 @Path("/addresses")

@@ -19,8 +19,8 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import dev.iannbraga.application.Result;
-import dev.iannbraga.dto.StateDTO;
-import dev.iannbraga.dto.StateResponseDTO;
+import dev.iannbraga.dto.address.StateDTO;
+import dev.iannbraga.dto.address.StateResponseDTO;
 import dev.iannbraga.service.StateServiceImpl;
 
 @Path("/states")

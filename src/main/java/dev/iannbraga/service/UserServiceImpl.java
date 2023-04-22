@@ -12,8 +12,8 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 import javax.ws.rs.NotFoundException;
 
-import dev.iannbraga.dto.UserDTO;
-import dev.iannbraga.dto.UserResponseDTO;
+import dev.iannbraga.dto.user.UserDTO;
+import dev.iannbraga.dto.user.UserResponseDTO;
 import dev.iannbraga.model.user.Role;
 import dev.iannbraga.model.user.UserEntity;
 import dev.iannbraga.repository.UserRepository;

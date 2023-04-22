@@ -12,8 +12,8 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 import javax.ws.rs.NotFoundException;
 
-import dev.iannbraga.dto.StateDTO;
-import dev.iannbraga.dto.StateResponseDTO;
+import dev.iannbraga.dto.address.StateDTO;
+import dev.iannbraga.dto.address.StateResponseDTO;
 import dev.iannbraga.model.address.StateEntity;
 import dev.iannbraga.repository.StateRepository;
 

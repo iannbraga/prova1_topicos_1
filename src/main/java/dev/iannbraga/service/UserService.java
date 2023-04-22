@@ -2,8 +2,8 @@ package dev.iannbraga.service;
 
 import java.util.List;
 
-import dev.iannbraga.dto.UserDTO;
-import dev.iannbraga.dto.UserResponseDTO;
+import dev.iannbraga.dto.user.UserDTO;
+import dev.iannbraga.dto.user.UserResponseDTO;
 
 public interface UserService {
 

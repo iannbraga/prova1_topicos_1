@@ -19,8 +19,8 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import dev.iannbraga.application.Result;
-import dev.iannbraga.dto.PipeProductDTO;
-import dev.iannbraga.dto.PipeProductResponseDTO;
+import dev.iannbraga.dto.product.PipeProductDTO;
+import dev.iannbraga.dto.product.PipeProductResponseDTO;
 import dev.iannbraga.service.PipeProductServiceImpl;
 
 @Path("/pipes")

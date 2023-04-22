@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 import dev.iannbraga.model.DefaultEntity;
 import dev.iannbraga.model.address.AddressEntity;
-import dev.iannbraga.model.user.UserEntity;
+import dev.iannbraga.model.person.PersonEntity;
 import lombok.Data;
 
 @Entity
@@ -19,10 +19,13 @@ import lombok.Data;
 @Table(name = "buy")
 public class BuyEntity extends DefaultEntity {
     
-    
+    // private LocalDateTime dateOfBuy;
+
+    private String description;
+
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
+    @JoinColumn(name = "person_id")
+    private PersonEntity person;
 
     @ManyToOne
     @JoinColumn(name = "address_id")

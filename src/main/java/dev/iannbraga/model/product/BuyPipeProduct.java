@@ -15,7 +15,7 @@ public class BuyPipeProduct extends DefaultEntity{
     
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private PipeProduct product;
+    private PipeProduct pipeProduct;
 
     @ManyToOne
     @JoinColumn(name = "buy_id")

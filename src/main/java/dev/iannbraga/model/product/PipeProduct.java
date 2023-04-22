@@ -16,6 +16,6 @@ public class PipeProduct extends ProductEntity{
     
     private String material;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "pipeProduct", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BuyPipeProduct> pipeProducts;
 }

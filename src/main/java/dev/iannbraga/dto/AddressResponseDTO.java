@@ -4,22 +4,26 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import dev.iannbraga.model.address.CityEntity;
+import dev.iannbraga.model.address.AddressEntity;
 
 public record AddressResponseDTO (
     Long id, 
     
-    String name,
+    String address,
 
-    String state,
+    String complement,
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    LocalDateTime createdAt,
+    String city,
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    LocalDateTime updatedAt
+    String person
 ){
-        public AddressResponseDTO(CityEntity entity){        
-            this(entity.getId(), entity.getName(), entity.getState().getName(), entity.getCreatedAt(), entity.getUpdatedAt());
-        }
+    public AddressResponseDTO(AddressEntity entity){        
+        this(
+            entity.getId(), 
+            entity.getAddress(), 
+            entity.getComplement(), 
+            entity.getCity().getName(), 
+            entity.getPerson().getFirstName()
+            );
+    }
 }

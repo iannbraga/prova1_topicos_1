@@ -2,20 +2,20 @@ package dev.iannbraga.service;
 
 import java.util.List;
 
-import dev.iannbraga.dto.CityResponseDTO;
-import dev.iannbraga.dto.CityDTO;
+import dev.iannbraga.dto.AddressResponseDTO;
+import dev.iannbraga.dto.AddressDTO;
 
 public interface AddressService {
 
-    List<CityResponseDTO> listAll();
+    List<AddressResponseDTO> listAll();
 
-    CityResponseDTO findById(Long id);
+    AddressResponseDTO findById(Long id);
     
-    List<CityResponseDTO> findByName(String name);
+    List<AddressResponseDTO> findByStreet(String name);
 
-    CityResponseDTO persist(CityDTO receivedEntity);
+    AddressResponseDTO persist(AddressDTO receivedEntity);
 
-    CityResponseDTO update(Long id, CityDTO receivedEntity);
+    AddressResponseDTO update(Long id, AddressDTO receivedEntity);
     
     void deleteById(Long id);
 

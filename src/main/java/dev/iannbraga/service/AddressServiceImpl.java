@@ -12,11 +12,13 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Validator;
 import javax.ws.rs.NotFoundException;
 
-import dev.iannbraga.dto.CityDTO;
-import dev.iannbraga.dto.CityResponseDTO;
-import dev.iannbraga.model.address.CityEntity;
+import dev.iannbraga.dto.AddressDTO;
+import dev.iannbraga.dto.AddressResponseDTO;
+import dev.iannbraga.dto.AddressDTO;
+import dev.iannbraga.model.address.AddressEntity;
+import dev.iannbraga.repository.AddressRepository;
 import dev.iannbraga.repository.CityRepository;
-import dev.iannbraga.repository.StateRepository;
+import dev.iannbraga.repository.PersonRepository;
 
 @ApplicationScoped
 public class AddressServiceImpl implements AddressService{
@@ -25,74 +27,82 @@ public class AddressServiceImpl implements AddressService{
     private CityRepository cityRepository;
     
     @Inject
-    private StateRepository stateRepository;
+    private AddressRepository addressRepository;
     
+    @Inject
+    private PersonRepository personRepository;
+
     @Inject
     private Validator validator;
 
     @Override
-    public List<CityResponseDTO> listAll() {
-        List<CityEntity> list = cityRepository.listAll();
+    public List<AddressResponseDTO> listAll() {
+        List<AddressEntity> list = addressRepository.listAll();
         
         return list.stream().map(
-            s -> new CityResponseDTO(s)
+            s -> new AddressResponseDTO(s)
         ).collect(Collectors.toList());
     }
 
     @Override
-    public CityResponseDTO findById(Long id) {
-        CityEntity entity = cityRepository.findById(id);     
+    public AddressResponseDTO findById(Long id) {
+        AddressEntity entity = addressRepository.findById(id);     
         if(entity == null)
             throw new NotFoundException("State not found.");
-        return new CityResponseDTO(entity);
+        return new AddressResponseDTO(entity);
     }
     
     @Override
-    public List<CityResponseDTO> findByName(String name) {
-        List<CityEntity> list = cityRepository.findByName(name);
+    public List<AddressResponseDTO> findByStreet(String name) {
+        List<AddressEntity> list = addressRepository.findByName(name);
         
         return list.stream().map(
-            s -> new CityResponseDTO(s)
+            s -> new AddressResponseDTO(s)
         ).collect(Collectors.toList());
     }
 
     @Override
     @Transactional
-    public CityResponseDTO persist(CityDTO receivedEntity) throws ConstraintViolationException{
+    public AddressResponseDTO persist(AddressDTO receivedEntity) throws ConstraintViolationException{
         validate(receivedEntity);
         
-        CityEntity entity = new CityEntity();
-        entity.setName(receivedEntity.name());
-        entity.setState(stateRepository.findById(receivedEntity.idState()));
-        cityRepository.persist(entity);
+        AddressEntity entity = new AddressEntity();
+        entity.setAddress(receivedEntity.address());
+        entity.setComplement(receivedEntity.complement());
+        entity.setCity(cityRepository.findById(receivedEntity.idCity()));
+        entity.setPerson(personRepository.findById(receivedEntity.idPerson()));
+        addressRepository.persist(entity);
         
-        return new CityResponseDTO(entity);
+        return new AddressResponseDTO(entity);
     }
 
     @Override
     @Transactional
-    public CityResponseDTO update(Long id, CityDTO receivedEntity) throws ConstraintViolationException{
+    public AddressResponseDTO update(Long id, AddressDTO receivedEntity) throws ConstraintViolationException{
         validate(receivedEntity);
 
-        CityEntity entity = cityRepository.findById(id);
-        entity.setName(receivedEntity.name());      
-        entity.setState(stateRepository.findById(receivedEntity.idState()));
-        return new CityResponseDTO(entity);
+        AddressEntity entity = addressRepository.findById(id);
+        entity.setAddress(receivedEntity.address());
+        entity.setComplement(receivedEntity.complement());
+        entity.setCity(cityRepository.findById(receivedEntity.idCity()));
+        entity.setPerson(personRepository.findById(receivedEntity.idPerson()));
+
+        return new AddressResponseDTO(entity);
     }
 
     @Override
     @Transactional
     public void deleteById(Long id) {
-        cityRepository.deleteById(id);
+        addressRepository.deleteById(id);
     }
 
     @Override
     public long count() {
-        return cityRepository.count();
+        return addressRepository.count();
     }
     
-    private void validate(CityDTO entity) throws ConstraintViolationException {
-        Set<ConstraintViolation<CityDTO>> violations = validator.validate(entity);
+    private void validate(AddressDTO entity) throws ConstraintViolationException {
+        Set<ConstraintViolation<AddressDTO>> violations = validator.validate(entity);
         if (!violations.isEmpty())
             throw new ConstraintViolationException(violations);
     }

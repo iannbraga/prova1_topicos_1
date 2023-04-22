@@ -77,6 +77,7 @@ public class CityServiceImpl implements CityService{
         CityEntity entity = cityRepository.findById(id);
         entity.setName(receivedEntity.name());      
         entity.setState(stateRepository.findById(receivedEntity.idState()));
+        
         return new CityResponseDTO(entity);
     }
 

@@ -2,8 +2,6 @@ package dev.iannbraga.dto;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import dev.iannbraga.model.person.PersonEntity;
 
 public record PersonResponseDTO (
@@ -13,13 +11,10 @@ public record PersonResponseDTO (
     String lastName,
     String cpf,
     String rg,
+    LocalDateTime dateOfBirth,
     String email,
     String role,
-    
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     LocalDateTime createdAt,
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     LocalDateTime updatedAt
 ){
         public PersonResponseDTO(PersonEntity entity){        
@@ -29,6 +24,7 @@ public record PersonResponseDTO (
                 entity.getLastName(), 
                 entity.getCpf(), 
                 entity.getRg(), 
+                entity.getDateOfBirth(),
                 entity.getUser().getUsername(),
                 entity.getUser().getRole().name(), 
                 entity.getCreatedAt(), 

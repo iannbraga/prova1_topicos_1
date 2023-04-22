@@ -138,8 +138,12 @@ insert into city ("name", "state_id") values ('Taguatinga', 27);
 insert into city ("name", "state_id") values ('Ceilândia', 27);
 
 -- Cadastrando Usuários
-insert into users ("username", "password", "role") values ('bragaprestes@gmail.com','Iann','ADMIN');
-insert into users ("username", "password", "role") values ('admin@gmail.com','Admin','ADMIN');
+insert into users ("username", "password", "role") values ('client@gmail.com','client','CLIENT');
+insert into users ("username", "password", "role") values ('admin@gmail.com','admin','ADMIN');
 
-insert into person ("first_name", "last_name", "cpf", "rg", "user_id") values ('Teste 1','Teste 1','123456789','123456',1);
-insert into person ("first_name", "last_name", "cpf", "rg", "user_id") values ('Teste 2','Teste 2','987654321','654321',2);
+insert into person ("first_name", "last_name", "cpf", "rg", "user_id") values ('Cliente','Teste','123456789','123456',1);
+insert into person ("first_name", "last_name", "cpf", "rg", "user_id") values ('Admin','Teste','987654321','654321',2);
+
+insert into pipe_product ("description", "characters", "price", "stock", "material") values ('Cachimbo Dracula','Especial para noites de lua cheia',120,10,'Madeira Sangue de Virgem');
+insert into pipe_product ("description", "characters", "price", "stock", "material") values ('Cachimbo Heisenberg','Perfeito para as Jóias do Infinito!! Incluíndo aquela azulzinha',200,2,'Metal');
+insert into pipe_product ("description", "characters", "price", "stock", "material") values ('Cachimbo da Paz','Específico para ervas jamaicanas',420,420,'Cânhamo');

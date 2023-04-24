@@ -1,8 +1,8 @@
 package dev.iannbraga.dto.product;
 
-import dev.iannbraga.model.product.PipeProduct;
+import dev.iannbraga.model.product.PipeEntity;
 
-public record PipeProductResponseDTO (
+public record PipeResponseDTO (
     String description,
     
     String characters,
@@ -13,7 +13,7 @@ public record PipeProductResponseDTO (
 
     String material
 ){
-    public PipeProductResponseDTO(PipeProduct p){
+    public PipeResponseDTO(PipeEntity p){
         this(
             p.getDescription(), 
             p.getCharacters(), 

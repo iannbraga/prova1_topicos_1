@@ -13,9 +13,7 @@ public record PersonResponseDTO (
     String rg,
     LocalDateTime dateOfBirth,
     String email,
-    String role,
-    LocalDateTime createdAt,
-    LocalDateTime updatedAt
+    String role
 ){
         public PersonResponseDTO(PersonEntity entity){        
             this(
@@ -26,9 +24,7 @@ public record PersonResponseDTO (
                 entity.getRg(), 
                 entity.getDateOfBirth(),
                 entity.getUser().getUsername(),
-                entity.getUser().getRole().name(), 
-                entity.getCreatedAt(), 
-                entity.getUpdatedAt()
+                entity.getUser().getRole().name()
             );
     }
 }

@@ -1,98 +1,134 @@
-@startuml
+@startuml eCommmerce
 
-    class Produto {
-       - id: Long
-       - nome: String
-       - descricao: String
-       - preco: Double
-       - estoque: Integer
+    class ProductGeek{
+        - id : Long
+        - description : String
+        - categories : Categories
+        - origin : String
+        - rating : String
+        - model : String
+        - price : Double
+        - stock : Int
+    }
+    class Categories{
+        - id : Long
+        - description : String
+        - categorySale : Sale
+    }
+    class Customer{
+        - id : Long
+        - firstName : String 
+        - lastName: String
+        - age : Int
+            isLegalAge()
+        - gender : String
+        - birthDay : Date
+        - address : Address
+        - cellphone : Phone
+        - whatsapp : Phone
+    }
+    class User{
+        - id : Long  
+        - customer : Customer
+        - email : String
+        - password : String
     }
 
-    class Faixa {
-
-
+    class Phone{
+        - id : Long
+        - ddd : String
+        - number : String
     }
 
-    enum Esporte {
-        - JUDO: int
-        - JIU: int 
-        - CAPOEIRA: int
+    class Sale{
+        - id : Long
+        - description : String
+        - durationTime : Int
+        - productsOnSale : List<ProductGeek>
+        - productDiscount : Double
+        - availableLocation : String
     }
 
-    enum Tamanho {
-        - A1_260: int
-        - A2_280: int 
-        - A3_300: int
-        - A4_320: int 
-        - A5_340: int
+    class PaymentCard{
+        - isDebitCard : Boolean
+        - cardNumber : Int
+        - securityCode : Int
+        - expirationDate : Date
+        - nameInCard : String
     }
 
-    class Usuario {
-        - id: Long
-        - nome: String 
-        - email: String
-        - senha: String 
-        - cpf: String 
+    class Address{
+        - id : Long
+        - isDefault : Boolean
+        - publicPlace : String
+        - street : String
+        - number  : String
+        - complement : String
+        - cep : String
+        - city : String
+        - stateCountry : String
     }
 
-    class Telefone {
-        - id: Long
-        - codigoArea: String
-        - numero: String
+    class BuyProduct{
+        - id : Long
+        - product : ProductGeek
+        - quantity : Integer
+        - totalPrice : Double
     }
 
-    class Compra {
-        - id: Long
-        - data: Date
-        - totalCompra: Double
-    }
-
-    class ItemCompra {
-        - id: Long
-        - quantidade: Integer
-        - preco: Double
-    }
-
-    class Endereco {
-        - id: Long
-        - principal: Boolean
-        - logradouro: String
-        - bairro: String 
-        - numero: String 
-        - complemento: String
-        - cep: String 
-    }
-
-    class Municipio {
-        id: Integer
-        nome: String
-    }
-
-    class Estado {
-        - id: Integer
-        - nome: String
-        - sigla: String
-    }
-
-    Faixa  -up-|> Produto
-
-    Faixa "*" --> "1" Tamanho
-    Faixa "*" --> "1" Esporte
-
-    Usuario "*" --> "*" Produto: listaDesejo
-    Usuario "1" *--> "1" Telefone: celular
-    Usuario "1" *--> "1" Telefone: whatszap
-    Usuario "1" *--> "*" Endereco
-
-    Compra "1" *--> "*" ItemCompra
-    Compra "*" --> "1" Usuario
-    Compra "*"  --> "1" Endereco
-
-    ItemCompra "*" --> "1" Produto
-
-    Endereco "*" --> "1" Municipio
     
-    Municipio "*" --> "1" Estado
+    Enum PaymentMethod{
+        DEBITCARD : INT
+        CREDITCARD : INT
+        BILLPAYMENT : INT
+        PIX : INT
+    }
+
+    class Buy{
+        - id : Long
+        - buyDate : Date
+        - productPrice : Double
+        - shippingPrice : Double
+        - totalValue : Double
+        - address : Address
+        - payment : PaymentMethod
+    }
+
+    class Sweatshirt{
+        - style : String
+        - color : String
+        - size : String
+        - material : String
+        - sleeveLength :String
+    }
+
+    class Mug {
+        - material : String
+        - color : String
+        - capacity : Double
+        - height : Double
+    }
+
+    User "*"-->"*" ProductGeek
+    User "1"*-->"1" Customer
 
 
+    Buy "1"*-->"*" BuyProduct
+    Buy "*"-->"1" User
+    Buy "1"*-->"*" PaymentMethod
+
+    BuyProduct "*"-->"*" ProductGeek
+
+    Sale "*"-->"1" ProductGeek
+    ProductGeek "1"*-left->"*" Categories
+
+    Customer "1"*-->"*" PaymentCard
+    Customer "1"*-->"*" Phone  
+    Customer "1"*-->"*" Address
+
+    Sweatshirt -up-|> ProductGeek
+    Mug -up-|> ProductGeek
+
+    'CRUD (CUSTOMER(E TODOS EM COMPOSIÇÃO A ELE), ADDRESS, PRODUTO ESPECÍFICO, CIDADE E ESTADO, USER, PRODUTOS)
+    'ENUM DE PRODUTO
 @enduml

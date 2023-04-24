@@ -1,8 +1,9 @@
 package dev.iannbraga.dto.person;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
 
 public record PersonDTO(
     @NotBlank(message = "O campo firstName deve ser informado.")
@@ -21,7 +22,9 @@ public record PersonDTO(
     String dateOfBirth,
     
     @NotNull(message = "O campo email deve ser informado.")
-    Long idUser
+    Long idUser,
+
+    List<Long> idAddresses
 )
 {
     // Constructos methods

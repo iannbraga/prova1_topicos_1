@@ -10,12 +10,12 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "buy_pipe_products")
-public class BuyPipeProduct extends DefaultEntity{
+@Table(name = "buy_pipe")
+public class BuyPipe extends DefaultEntity{
     
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private PipeProduct pipeProduct;
+    @JoinColumn(name = "pipe_id")
+    private PipeEntity pipe;
 
     @ManyToOne
     @JoinColumn(name = "buy_id")

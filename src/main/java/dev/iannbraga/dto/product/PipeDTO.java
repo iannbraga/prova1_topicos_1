@@ -5,9 +5,9 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import dev.iannbraga.model.product.PipeProduct;
+import dev.iannbraga.model.product.PipeEntity;
 
-public record PipeProductDTO(
+public record PipeDTO(
     @NotBlank(message = "O campo address deve ser informado.")
     String description,
     
@@ -26,7 +26,7 @@ public record PipeProductDTO(
     @NotBlank(message = "O campo address deve ser informado.")
     String material
 ){
-    public PipeProductDTO(PipeProduct p){
+    public PipeDTO(PipeEntity p){
         this(
             p.getDescription(), 
             p.getCharacters(), 

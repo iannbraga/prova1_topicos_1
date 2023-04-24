@@ -15,7 +15,7 @@ public record AddressDTO(
     @NotNull(message = "O campo idCity deve ser informado.")
     Long idCity,
 
-    @NotNull(message = "O campo idPerson deve ser informado.")
+    // @NotNull(message = "O campo idPerson deve ser informado.")
     Long idPerson
 ){
     // Constructos methods

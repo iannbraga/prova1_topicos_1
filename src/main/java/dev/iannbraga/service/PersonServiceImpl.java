@@ -3,6 +3,7 @@ package dev.iannbraga.service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -17,6 +18,7 @@ import javax.ws.rs.NotFoundException;
 
 import dev.iannbraga.dto.person.PersonDTO;
 import dev.iannbraga.dto.person.PersonResponseDTO;
+import dev.iannbraga.model.address.AddressEntity;
 import dev.iannbraga.model.person.PersonEntity;
 import dev.iannbraga.repository.AddressRepository;
 import dev.iannbraga.repository.PersonRepository;
@@ -30,6 +32,9 @@ public class PersonServiceImpl implements PersonService{
 
     @Inject
     private UserRepository userRepository;
+    
+    @Inject
+    private AddressRepository addressRepository;
     
     @Inject
     private Validator validator;
@@ -72,8 +77,8 @@ public class PersonServiceImpl implements PersonService{
         entity.setRg(receivedEntity.rg());
         entity.setDateOfBirth(convertStringToDate(receivedEntity.dateOfBirth()));
         entity.setUser(userRepository.findById(receivedEntity.idUser()));
-        // TODO Address
-
+        // entity.setAddress(findAllById(receivedEntity.idAddresses()));
+        
         personRepository.persist(entity);
         
         return new PersonResponseDTO(entity);
@@ -118,5 +123,15 @@ public class PersonServiceImpl implements PersonService{
         LocalDateTime dateTime = LocalDate.parse(date, parser).atStartOfDay();
         return dateTime;
     }
+
+    // public List<AddressEntity> findAllById(List<Long> ids){
+    //     List<AddressEntity> list = new ArrayList<>();
+    //     Long id = 1L;
+    //     for (int i = 0; i < ids.size(); i++) {
+    //         id = ids.get(i);
+    //         list.add(addressRepository.findById(id));
+    //     }
+    //     return list;
+    // }
     
 }

@@ -16,5 +16,4 @@ public class AddressRepository implements PanacheRepository<AddressEntity>{
         String value = "%"+name.toUpperCase()+"%";
         return list("UPPER(address) like ?1", value);
     }
-
 }

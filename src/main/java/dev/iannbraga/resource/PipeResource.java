@@ -19,41 +19,41 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import dev.iannbraga.application.Result;
-import dev.iannbraga.dto.product.PipeProductDTO;
-import dev.iannbraga.dto.product.PipeProductResponseDTO;
-import dev.iannbraga.service.PipeProductServiceImpl;
+import dev.iannbraga.dto.product.PipeDTO;
+import dev.iannbraga.dto.product.PipeResponseDTO;
+import dev.iannbraga.service.PipeServiceImpl;
 
 @Path("/pipes")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class PipeProductResource {
+public class PipeResource {
 
     @Inject
-    private PipeProductServiceImpl pipeService;
+    private PipeServiceImpl pipeService;
 
     @GET
     public Response listAll() {
-        List<PipeProductResponseDTO> list = pipeService.listAll();
+        List<PipeResponseDTO> list = pipeService.listAll();
         return Response.ok(list).build();
     }
 
     @GET
     @Path("/search/{name}")
     public Response findByName(@PathParam("name") String name) {   
-        List<PipeProductResponseDTO> list = pipeService.findByDescription(name);
+        List<PipeResponseDTO> list = pipeService.findByDescription(name);
         return Response.ok(list).build();
     }
 
     @GET
     @Path("/{id}")
-    public PipeProductResponseDTO findById(@PathParam("id") Long id) {
+    public PipeResponseDTO findById(@PathParam("id") Long id) {
         return pipeService.findById(id);
     }
 
     @POST
-    public Response persist(@RequestBody PipeProductDTO receivedEntity) {
+    public Response persist(@RequestBody PipeDTO receivedEntity) {
         try {
-            PipeProductResponseDTO entity =  pipeService.persist(receivedEntity);
+            PipeResponseDTO entity =  pipeService.persist(receivedEntity);
             return Response.status(Status.CREATED).entity(entity).build();
         }  catch(ConstraintViolationException e) {
             Result result = new Result(e.getConstraintViolations());
@@ -63,9 +63,9 @@ public class PipeProductResource {
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") Long id, @RequestBody PipeProductDTO receivedEntity) {
+    public Response update(@PathParam("id") Long id, @RequestBody PipeDTO receivedEntity) {
         try {
-            PipeProductResponseDTO entity = pipeService.update(id, receivedEntity);;
+            PipeResponseDTO entity = pipeService.update(id, receivedEntity);;
             return Response.status(Status.CREATED).entity(entity).build();
         
         }  catch(ConstraintViolationException e) {

@@ -11,11 +11,11 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "pipe_product")
-public class PipeProduct extends ProductEntity{
+@Table(name = "pipe")
+public class PipeEntity extends ProductEntity{
     
     private String material;
 
-    @OneToMany(mappedBy = "pipeProduct", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BuyPipeProduct> pipeProducts;
+    @OneToMany(mappedBy = "pipe", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BuyPipe> pipes;
 }

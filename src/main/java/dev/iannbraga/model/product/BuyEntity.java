@@ -32,7 +32,7 @@ public class BuyEntity extends DefaultEntity {
     private AddressEntity address;
 
     @OneToMany(mappedBy = "buy", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BuyPipeProduct> pipeProducts;
+    private List<BuyPipe> pipes;
 
 
 }

@@ -11,5 +11,4 @@ public record StateDTO(
     String acronym
 )
 {
-    // Constructos methods
 }

@@ -147,6 +147,6 @@ insert into person ("first_name", "last_name", "cpf", "rg", "user_id") values ('
 insert into "address" ("address","complement","city_id","person_id") values ('Q. 1106 S Al. 2 Lt. 36','Plano Diretor Sul',76,1);
 insert into "address" ("address","complement","city_id","person_id") values ('Q. 112 N Al. 10 Lt. 45','Plano Diretor Norte',76,2);
 
-insert into pipe ("description", "characters", "price", "stock", "material") values ('Cachimbo Dracula','Especial para noites de lua cheia',120,10,'Madeira Sangue de Virgem');
-insert into pipe ("description", "characters", "price", "stock", "material") values ('Cachimbo Heisenberg','Perfeito para as Jóias do Infinito!! Incluíndo aquela azulzinha',200,2,'Metal');
-insert into pipe ("description", "characters", "price", "stock", "material") values ('Cachimbo da Paz','Específico para ervas jamaicanas',420,420,'Cânhamo');
+insert into pipe ("description", "characters", "price", "stock", "status", "material") values ('Cachimbo Dracula','Especial para noites de lua cheia',120,10, 'DISPONIVEL','Madeira Sangue de Virgem');
+insert into pipe ("description", "characters", "price", "stock", "status", "material") values ('Cachimbo Heisenberg','Perfeito para as Jóias do Infinito!! Incluíndo aquela azulzinha',200,2, 'DISPONIVEL', 'Metal');
+insert into pipe ("description", "characters", "price", "stock", "status", "material") values ('Cachimbo da Paz','Específico para ervas jamaicanas',420,420, 'DISPONIVEL', 'Cânhamo');

@@ -11,6 +11,8 @@ public record PipeResponseDTO (
 
     Double price,
 
+    String status,
+
     String material
 ){
     public PipeResponseDTO(PipeEntity p){
@@ -19,6 +21,7 @@ public record PipeResponseDTO (
             p.getCharacters(), 
             p.getStock(), 
             p.getPrice(),
+            p.getStatus().toString(),
             p.getMaterial()
         );
     }

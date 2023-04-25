@@ -27,5 +27,4 @@ public record PersonDTO(
     List<Long> idAddresses
 )
 {
-    // Constructos methods
 }

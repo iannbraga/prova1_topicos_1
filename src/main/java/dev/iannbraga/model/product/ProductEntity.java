@@ -1,5 +1,7 @@
 package dev.iannbraga.model.product;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 
 import dev.iannbraga.model.DefaultEntity;
@@ -18,4 +20,7 @@ public class ProductEntity extends DefaultEntity{
     private int stock;
 
     private Double price;
+
+    @Enumerated(EnumType.STRING)
+    private ProductStatus status;
 }

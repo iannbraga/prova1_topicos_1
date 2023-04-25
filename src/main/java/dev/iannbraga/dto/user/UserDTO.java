@@ -14,5 +14,4 @@ public record UserDTO(
     String role
 )
 {
-    // Constructos methods
 }

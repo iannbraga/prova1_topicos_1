@@ -18,12 +18,4 @@ public record AddressDTO(
     // @NotNull(message = "O campo idPerson deve ser informado.")
     Long idPerson
 ){
-    // Constructos methods
-    public AddressDTO(AddressEntity e){
-        this(
-            e.getAddress(), 
-            e.getComplement(), 
-            e.getCity().getId(), 
-            e.getPerson().getId());
-    }
 }

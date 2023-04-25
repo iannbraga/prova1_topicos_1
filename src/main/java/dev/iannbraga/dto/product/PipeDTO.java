@@ -15,24 +15,16 @@ public record PipeDTO(
     String characters,
     
     @NotNull(message = "O campo idPerson deve ser informado.")
-    @Min(value = 1)
-    @Max(value = 50)
     int stock,
 
     @NotNull(message = "O campo idPerson deve ser informado.")
     @Min(value = 0)
     Double price,
 
-    @NotBlank(message = "O campo address deve ser informado.")
+    @NotBlank(message = "O campo status deve ser informado.")
+    String status,
+
+    @NotBlank(message = "O campo material deve ser informado.")
     String material
 ){
-    public PipeDTO(PipeEntity p){
-        this(
-            p.getDescription(), 
-            p.getCharacters(), 
-            p.getStock(), 
-            p.getPrice(),
-            p.getMaterial()
-        );
-    }
 }

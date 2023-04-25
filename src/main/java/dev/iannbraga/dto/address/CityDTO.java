@@ -11,5 +11,4 @@ public record CityDTO(
     @NotNull(message = "O campo idState deve ser informado.")
     long idState
 ){
-    // Constructos methods
 }

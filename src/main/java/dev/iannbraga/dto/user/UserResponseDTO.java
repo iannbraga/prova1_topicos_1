@@ -20,6 +20,6 @@ public record UserResponseDTO (
     LocalDateTime updatedAt
 ){
         public UserResponseDTO(UserEntity entity){        
-            this(entity.getId(), entity.getUsername(), entity.getRole().name(), entity.getCreatedAt(), entity.getUpdatedAt());
+            this(entity.getId(), entity.getUsername(), entity.getRole().toString(), entity.getCreatedAt(), entity.getUpdatedAt());
         }
 }

@@ -66,7 +66,7 @@ public class PipeResource {
     public Response update(@PathParam("id") Long id, @RequestBody PipeDTO receivedEntity) {
         try {
             PipeResponseDTO entity = pipeService.update(id, receivedEntity);;
-            return Response.status(Status.CREATED).entity(entity).build();
+            return Response.status(Status.NO_CONTENT).entity(entity).build();
         
         }  catch(ConstraintViolationException e) {
             Result result = new Result(e.getConstraintViolations());

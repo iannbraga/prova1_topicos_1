@@ -1,5 +1,6 @@
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/service/PipeService.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/service/UserServiceImpl.java
+/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/product/ProductStatus.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/person/PersonEntity.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/dto/address/CityDTO.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/service/CityServiceImpl.java

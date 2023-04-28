@@ -1,9 +1,5 @@
 package dev.iannbraga.dto.address;
 
-import java.time.LocalDateTime;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import dev.iannbraga.model.address.StateEntity;
 
 public record StateResponseDTO (
@@ -11,13 +7,10 @@ public record StateResponseDTO (
     
     String name,
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    LocalDateTime createdAt,
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    LocalDateTime updatedAt
+    String acronym
+    
 ){
         public StateResponseDTO(StateEntity entity){        
-            this(entity.getId(), entity.getName(), entity.getCreatedAt(), entity.getUpdatedAt());
+            this(entity.getId(), entity.getName(), entity.getAcronym());
         }
 }

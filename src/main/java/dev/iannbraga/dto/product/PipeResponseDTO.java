@@ -2,7 +2,7 @@ package dev.iannbraga.dto.product;
 
 import dev.iannbraga.model.product.PipeEntity;
 
-public record PipeResponseDTO (
+public record PipeResponseDTO(
     String description,
     
     String characters,
@@ -21,7 +21,7 @@ public record PipeResponseDTO (
             p.getCharacters(), 
             p.getStock(), 
             p.getPrice(),
-            p.getStatus().toString(),
+            p.getStatus().name(),
             p.getMaterial()
         );
     }

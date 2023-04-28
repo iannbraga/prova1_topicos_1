@@ -3,8 +3,6 @@ package dev.iannbraga.dto.address;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import dev.iannbraga.model.address.AddressEntity;
-
 public record AddressDTO(
     @NotBlank(message = "O campo address deve ser informado.")
     String address,

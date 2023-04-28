@@ -67,7 +67,7 @@ public class PersonResource {
     public Response update(@PathParam("id") Long id, @RequestBody PersonDTO receivedEntity) {
         try {
             PersonResponseDTO entity = personService.update(id, receivedEntity);;
-            return Response.status(Status.CREATED).entity(entity).build();
+            return Response.status(Status.NO_CONTENT).entity(entity).build();
         
         }  catch(ConstraintViolationException e) {
             Result result = new Result(e.getConstraintViolations());

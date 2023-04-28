@@ -15,6 +15,7 @@ import javax.ws.rs.NotFoundException;
 import dev.iannbraga.dto.product.PipeDTO;
 import dev.iannbraga.dto.product.PipeResponseDTO;
 import dev.iannbraga.model.product.PipeEntity;
+import dev.iannbraga.model.product.ProductStatus;
 import dev.iannbraga.repository.PipeRepository;
 
 @ApplicationScoped
@@ -62,7 +63,9 @@ public class PipeServiceImpl implements PipeService{
         entity.setCharacters(receivedEntity.characters());
         entity.setStock(receivedEntity.stock());
         entity.setPrice(receivedEntity.price());
+        entity.setStatus(validateStatus(receivedEntity.status()));
         entity.setMaterial(receivedEntity.material());
+        
         pipeRepository.persist(entity);
         
         return new PipeResponseDTO(entity);
@@ -98,6 +101,18 @@ public class PipeServiceImpl implements PipeService{
         Set<ConstraintViolation<PipeDTO>> violations = validator.validate(entity);
         if (!violations.isEmpty())
             throw new ConstraintViolationException(violations);
+    }
+
+    private ProductStatus validateStatus(String status){
+        if(status.toUpperCase().equals("DISPONIVEL")){
+            return ProductStatus.DISPONIVEL;
+        }
+        else if(status.toUpperCase().equals("INDISPONIVEL")){
+            return ProductStatus.INDISPONIVEL;
+        }
+        else{
+            return null;
+        }
     }
 
 }

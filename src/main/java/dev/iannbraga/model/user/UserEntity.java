@@ -1,5 +1,6 @@
 package dev.iannbraga.model.user;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -19,6 +20,7 @@ public class UserEntity extends DefaultEntity{
 
     private String username;
     
+    @Column
     private String password;
 
     @Enumerated(EnumType.STRING)

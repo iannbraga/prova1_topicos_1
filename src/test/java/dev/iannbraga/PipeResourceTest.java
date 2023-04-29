@@ -4,6 +4,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import javax.inject.Inject;
 
@@ -67,8 +69,8 @@ public class PipeResourceTest {
           .when().post(URL)
           .then()
              .statusCode(201)
-             .body(
-                "description", is("Teste"),
+             .body("id", notNullValue(),   
+             "description", is("Teste"),
                 "characters", is("Teste"),
                 "stock", is(1),
                 "price", is(1.1F),
@@ -85,7 +87,7 @@ public class PipeResourceTest {
             "Teste",
             1,
             1.1,
-            "Teste",
+            "DISPONIVEL",
             "Teste"
         );
 
@@ -93,12 +95,12 @@ public class PipeResourceTest {
 
         // Criando outra pessoa para atuailzacao
         PipeDTO pipeUpdate = new PipeDTO(
-            "Teste",
-            "Teste",
+            "Teste Updated",
+            "Teste Updated",
             1,
             1.1,
-            "Teste",
-            "Teste"
+            "DISPONIVEL",
+            "Teste Updated"
         );
 
         given()
@@ -112,40 +114,41 @@ public class PipeResourceTest {
         PipeResponseDTO pipeResponse = pipeService.findById(id);
         
         assertThat(pipeResponse.description(), is("Teste Updated"));
-        assertThat(pipeResponse.characters(), is("Alagoas"));
+        assertThat(pipeResponse.characters(), is("Teste Updated"));
+
     }
 
-//     @Test
-//     public void testDelete() {
-//         // Adicionando uma pessoa no banco de dados
-//         PipeDTO pipe = new PipeDTO(
-//             "Teste",
-//             "Teste",
-//             1,
-//             1.1,
-//             "Teste",
-//             "Teste"
-//         );
-//         Long id = pipeService
-// .persist(pipe).id();
+    @Test
+    public void testDelete() {
+        // Adicionando uma pessoa no banco de dados
+        PipeDTO pipe = new PipeDTO(
+            "Teste",
+            "Teste",
+            1,
+            1.1,
+            "DISPONIVEL",
+            "Teste"
+        );
+        Long id = pipeService
+.persist(pipe).id();
 
-//         given()
-//           .when().delete(URL + "/{id}", id)
-//           .then()
-//              .statusCode(204);
+        given()
+          .when().delete(URL + "/{id}", id)
+          .then()
+             .statusCode(204);
 
-//         // verificando se a pessoa fisica foi excluida
-//         PipeResponseDTO PipeResponseDTO = null;
-//         try {
-//             PipeResponseDTO =  pipeService
-// .findById(id);
-//         } catch (Exception e) {
+        // verificando se a pessoa fisica foi excluida
+        PipeResponseDTO PipeResponseDTO = null;
+        try {
+            PipeResponseDTO =  pipeService
+.findById(id);
+        } catch (Exception e) {
 
-//         }
-//         finally {
-//             assertNull(PipeResponseDTO);   
-//         }
-//     }
+        }
+        finally {
+            assertNull(PipeResponseDTO);   
+        }
+    }
 
     @Test
     public void testCountEndpoint() {

@@ -3,6 +3,8 @@ package dev.iannbraga.dto.product;
 import dev.iannbraga.model.product.PipeEntity;
 
 public record PipeResponseDTO(
+    Long id,
+    
     String description,
     
     String characters,
@@ -17,6 +19,7 @@ public record PipeResponseDTO(
 ){
     public PipeResponseDTO(PipeEntity p){
         this(
+            p.getId(),
             p.getDescription(), 
             p.getCharacters(), 
             p.getStock(), 

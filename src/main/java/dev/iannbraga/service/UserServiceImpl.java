@@ -1,5 +1,6 @@
 package dev.iannbraga.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -23,6 +24,9 @@ public class UserServiceImpl implements UserService{
 
     @Inject
     private UserRepository userRepository;
+
+    @Inject
+    HashService hashService;
 
     @Inject
     private Validator validator;
@@ -60,12 +64,8 @@ public class UserServiceImpl implements UserService{
         
         UserEntity entity = new UserEntity();
         entity.setUsername(receivedEntity.username());
-        entity.setPassword(receivedEntity.password());
-        if(receivedEntity.role().toUpperCase().equals("ADMIN")){
-            entity.setRole(Role.ADMIN);
-        }else{
-            entity.setRole(Role.CLIENT);
-        }
+        entity.setPassword(hashService.getHashSenha(receivedEntity.password()));
+        entity.setRoles(receivedEntity.roles());
         userRepository.persist(entity);
         
         return new UserResponseDTO(entity);
@@ -77,11 +77,16 @@ public class UserServiceImpl implements UserService{
         validate(receivedEntity);
 
         UserEntity entity = userRepository.findById(id);
+
+        Set<Role> roles = new HashSet<>();
+        roles.add(Role.USER);
+
         entity.setUsername(receivedEntity.username());
-        if(receivedEntity.role().toUpperCase().equals("ADMIN")){
-            entity.setRole(Role.ADMIN);
+        entity.setPassword(receivedEntity.password());
+        if(receivedEntity.roles() != null){
+            entity.setRoles(receivedEntity.roles());
         }else{
-            entity.setRole(Role.CLIENT);
+            entity.setRoles(roles);
         }
         return new UserResponseDTO(entity);
     }
@@ -101,6 +106,11 @@ public class UserServiceImpl implements UserService{
         Set<ConstraintViolation<UserDTO>> violations = validator.validate(entity);
         if (!violations.isEmpty())
             throw new ConstraintViolationException(violations);
+    }
+
+    @Override
+    public UserEntity findByUsernameAndPassword(String username, String hash) {
+        return userRepository.findByUsernameAndPassword(username, hash);
     }
     
 }

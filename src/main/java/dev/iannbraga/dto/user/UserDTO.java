@@ -1,6 +1,10 @@
 package dev.iannbraga.dto.user;
 
+import java.util.Set;
+
 import javax.validation.constraints.NotBlank;
+
+import dev.iannbraga.model.user.Role;
 
 
 public record UserDTO(
@@ -10,8 +14,5 @@ public record UserDTO(
     @NotBlank(message = "O campo password deve ser informado.")
     String password,
     
-    @NotBlank(message = "O campo role deve ser informado.")
-    String role
-)
-{
-}
+    Set<Role> roles
+){}

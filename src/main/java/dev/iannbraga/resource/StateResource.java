@@ -2,6 +2,8 @@ package dev.iannbraga.resource;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.validation.ConstraintViolationException;
 import javax.ws.rs.Consumes;
@@ -32,12 +34,14 @@ public class StateResource {
     private StateServiceImpl stateService;
 
     @GET
+    @RolesAllowed("Admin")
     public Response listAll() {
         List<StateResponseDTO> list = stateService.listAll();
         return Response.ok(list).build();
     }
 
     @GET
+    @PermitAll
     @Path("/search/{name}")
     public Response findByName(@PathParam("name") String name) {   
         List<StateResponseDTO> list = stateService.findByName(name);

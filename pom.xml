@@ -62,22 +62,34 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- Lombok -->
     <dependency>
 		  <groupId>org.projectlombok</groupId>
 		  <artifactId>lombok</artifactId>
 		  <version>1.18.26</version>
 		  <scope>provided</scope>
 	  </dependency>
+    <!-- Validação -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-validator</artifactId>
     </dependency>
+    <!-- Teste -->
     <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>3.19.0</version>
       <scope>test</scope>
     </dependency>
+    <!-- Jwt -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-jwt</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-jwt-build</artifactId>
+    </dependency>  
   </dependencies>
   <build>
     <plugins>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import dev.iannbraga.dto.user.UserDTO;
 import dev.iannbraga.dto.user.UserResponseDTO;
+import dev.iannbraga.model.user.UserEntity;
 
 public interface UserService {
 
@@ -20,4 +21,6 @@ public interface UserService {
     void deleteById(Long id);
 
     long count();
+
+    UserEntity findByUsernameAndPassword(String username, String hash);
 }

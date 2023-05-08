@@ -1,8 +1,10 @@
 package dev.iannbraga.dto.person;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import dev.iannbraga.model.person.PersonEntity;
+import dev.iannbraga.model.user.Role;
 
 public record PersonResponseDTO (
     
@@ -13,7 +15,7 @@ public record PersonResponseDTO (
     String rg,
     LocalDateTime dateOfBirth,
     String email,
-    String role
+    Set<Role> role
 ){
         public PersonResponseDTO(PersonEntity entity){        
             this(
@@ -24,7 +26,7 @@ public record PersonResponseDTO (
                 entity.getRg(), 
                 entity.getDateOfBirth(),
                 entity.getUser().getUsername(),
-                entity.getUser().getRole().name()
+                entity.getUser().getRoles()
             );
     }
 }

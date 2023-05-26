@@ -28,20 +28,19 @@ import dev.iannbraga.service.StateServiceImpl;
 @Path("/states")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@PermitAll
 public class StateResource {
 
     @Inject
     private StateServiceImpl stateService;
 
     @GET
-    @RolesAllowed("Admin")
     public Response listAll() {
         List<StateResponseDTO> list = stateService.listAll();
         return Response.ok(list).build();
     }
 
     @GET
-    @PermitAll
     @Path("/search/{name}")
     public Response findByName(@PathParam("name") String name) {   
         List<StateResponseDTO> list = stateService.findByName(name);
@@ -55,6 +54,7 @@ public class StateResource {
     }
 
     @POST
+    @RolesAllowed("Admin")
     public Response persist(@RequestBody StateDTO receivedEntity) {
         try {
             StateResponseDTO entity =  stateService.persist(receivedEntity);
@@ -68,6 +68,7 @@ public class StateResource {
 
     @PUT
     @Path("/{id}")
+    @RolesAllowed("Admin")
     public Response update(@PathParam("id") Long id, @RequestBody StateDTO receivedEntity) {
         try {
             StateResponseDTO entity = stateService.update(id, receivedEntity);;
@@ -81,6 +82,8 @@ public class StateResource {
 
     @DELETE
     @Path("/{id}")
+    @RolesAllowed("Admin")
+
     public Response deleteById(@PathParam("id") Long id) {
         stateService.deleteById(id);
         return Response.status(Status.NO_CONTENT).build();

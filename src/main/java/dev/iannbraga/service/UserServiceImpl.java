@@ -112,5 +112,23 @@ public class UserServiceImpl implements UserService{
     public UserEntity findByUsernameAndPassword(String username, String hash) {
         return userRepository.findByUsernameAndPassword(username, hash);
     }
+
+    @Override
+    public UserResponseDTO findByLogin(String username) {
+        UserEntity user = userRepository.findByLogin(username);
+        if (user == null)
+            throw new NotFoundException("Usuário não encontrado.");
+        return new UserResponseDTO(user);
+    }
+
+    @Override
+    public UserResponseDTO updatePassword(String username, String oldPassword, String newPassword, String confirmPassword) {
+        UserEntity user = userRepository.findByLogin(username);
+        if (user == null)
+            throw new NotFoundException("Usuário não encontrado.");
+        
+        
+        return new UserResponseDTO(user);
+    }
     
 }

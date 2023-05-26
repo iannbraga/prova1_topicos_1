@@ -2,6 +2,8 @@ package dev.iannbraga.resource;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.validation.ConstraintViolationException;
 import javax.ws.rs.Consumes;
@@ -24,6 +26,7 @@ import dev.iannbraga.dto.address.CityResponseDTO;
 import dev.iannbraga.service.CityServiceImpl;
 
 @Path("/cities")
+@PermitAll
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CityResource {
@@ -51,6 +54,7 @@ public class CityResource {
     }
 
     @POST
+    @RolesAllowed("Admin")
     public Response persist(@RequestBody CityDTO receivedEntity) {
         try {
             CityResponseDTO entity =  cityService.persist(receivedEntity);
@@ -64,6 +68,7 @@ public class CityResource {
 
     @PUT
     @Path("/{id}")
+    @RolesAllowed("Admin")
     public Response update(@PathParam("id") Long id, @RequestBody CityDTO receivedEntity) {
         try {
             CityResponseDTO entity = cityService.update(id, receivedEntity);;
@@ -77,6 +82,7 @@ public class CityResource {
 
     @DELETE
     @Path("/{id}")
+    @RolesAllowed("Admin")
     public Response deleteById(@PathParam("id") Long id) {
         cityService.deleteById(id);
         return Response.status(Status.NO_CONTENT).build();

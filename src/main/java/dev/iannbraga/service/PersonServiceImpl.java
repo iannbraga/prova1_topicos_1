@@ -71,7 +71,6 @@ public class PersonServiceImpl implements PersonService{
         entity.setRg(receivedEntity.rg());
         entity.setDateOfBirth(convertStringToDate(receivedEntity.dateOfBirth()));
         entity.setUser(userRepository.findById(receivedEntity.idUser()));
-        // entity.setAddress(findAllById(receivedEntity.idAddresses()));
         
         personRepository.persist(entity);
         

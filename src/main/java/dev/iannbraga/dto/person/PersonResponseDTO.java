@@ -14,8 +14,7 @@ public record PersonResponseDTO (
     String cpf,
     String rg,
     LocalDateTime dateOfBirth,
-    String email,
-    Set<Role> role
+    String email
 ){
         public PersonResponseDTO(PersonEntity entity){        
             this(
@@ -25,8 +24,7 @@ public record PersonResponseDTO (
                 entity.getCpf(), 
                 entity.getRg(), 
                 entity.getDateOfBirth(),
-                entity.getUser().getUsername(),
-                entity.getUser().getRoles()
+                entity.getUser().getUsername()
             );
     }
 }

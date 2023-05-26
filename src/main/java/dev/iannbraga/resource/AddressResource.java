@@ -2,6 +2,8 @@ package dev.iannbraga.resource;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.validation.ConstraintViolationException;
 import javax.ws.rs.Consumes;
@@ -26,12 +28,14 @@ import dev.iannbraga.service.AddressServiceImpl;
 @Path("/addresses")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@PermitAll
 public class AddressResource {
 
     @Inject
     private AddressServiceImpl addressService;
 
     @GET
+    @RolesAllowed("Admin")
     public Response listAll() {
         List<AddressResponseDTO> list = addressService.listAll();
         return Response.ok(list).build();
@@ -46,6 +50,7 @@ public class AddressResource {
 
     @GET
     @Path("/{id}")
+    @RolesAllowed("Admin")
     public AddressResponseDTO findById(@PathParam("id") Long id) {
         return addressService.findById(id);
     }
@@ -84,6 +89,7 @@ public class AddressResource {
 
     @GET
     @Path("/count")
+    @RolesAllowed("Admin")
     public Response count() {
         Long count = addressService.count();
         return Response.status(Status.OK).entity(count).build();

@@ -33,7 +33,6 @@
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/dto/address/StateDTO.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/dto/user/UserResponseDTO.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/service/AddressService.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/dto/AuthUsuarioDTO.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/service/StateServiceImpl.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/address/StateEntity.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/dto/person/PersonDTO.java
@@ -55,4 +54,5 @@
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/resource/AddressResource.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/convert_jpa/RoleConvert.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/dto/address/CityResponseDTO.java
+/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/dto/user/AuthUsuarioDTO.java
 /home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/main/java/dev/iannbraga/model/DefaultEntity.java

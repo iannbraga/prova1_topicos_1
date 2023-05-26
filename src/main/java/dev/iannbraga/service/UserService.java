@@ -23,4 +23,8 @@ public interface UserService {
     long count();
 
     UserEntity findByUsernameAndPassword(String username, String hash);
+
+    UserResponseDTO findByLogin(String login);
+
+    UserResponseDTO updatePassword(String username, String oldPassword, String newPassword, String confirmPassword);
 }

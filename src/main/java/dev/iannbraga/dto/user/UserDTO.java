@@ -13,6 +13,9 @@ public record UserDTO(
 
     @NotBlank(message = "O campo password deve ser informado.")
     String password,
-    
+   
+    @NotBlank(message = "O campo password deve ser informado.")
+    String confirmPassword,
+
     Set<Role> roles
 ){}

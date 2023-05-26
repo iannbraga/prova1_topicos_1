@@ -1,6 +1,7 @@
 package dev.iannbraga.resource;
 
 import dev.iannbraga.dto.user.AuthUsuarioDTO;
+import dev.iannbraga.dto.user.UserDTO;
 import dev.iannbraga.model.user.UserEntity;
 import dev.iannbraga.service.HashService;
 import dev.iannbraga.service.TokenJwtService;
@@ -43,5 +44,18 @@ public class AuthResource {
             .header("Authorization", tokenService.generateJwt(user))
             // .entity("Token: " + tokenService.generateJwt(user))
             .build();
+    }
+
+    @POST
+    @Path("/register")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response register(UserDTO receivedEntity) {
+
+        // String hash = hashService.getHashSenha(receivedEntity.password());
+        
+        userService.persist(receivedEntity);
+
+        return Response.ok().build();
     }
 }

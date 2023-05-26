@@ -1,10 +1,6 @@
 package dev.iannbraga.dto.person;
 
-import java.time.LocalDateTime;
-import java.util.Set;
-
 import dev.iannbraga.model.person.PersonEntity;
-import dev.iannbraga.model.user.Role;
 
 public record PersonResponseDTO (
     
@@ -13,7 +9,7 @@ public record PersonResponseDTO (
     String lastName,
     String cpf,
     String rg,
-    LocalDateTime dateOfBirth,
+    String dateOfBirth,
     String email
 ){
         public PersonResponseDTO(PersonEntity entity){        
@@ -23,7 +19,7 @@ public record PersonResponseDTO (
                 entity.getLastName(), 
                 entity.getCpf(), 
                 entity.getRg(), 
-                entity.getDateOfBirth(),
+                entity.getDateOfBirth().toString(),
                 entity.getUser().getUsername()
             );
     }

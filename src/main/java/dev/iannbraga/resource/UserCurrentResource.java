@@ -13,7 +13,9 @@ import javax.ws.rs.core.Response;
 
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
+import dev.iannbraga.dto.user.UserDTO;
 import dev.iannbraga.dto.user.UserResponseDTO;
+import dev.iannbraga.model.user.UserEntity;
 import dev.iannbraga.service.HashService;
 import dev.iannbraga.service.UserService;
 
@@ -42,6 +44,17 @@ public class UserCurrentResource {
         // obtendo o login a partir do token
         String login = jwt.getSubject();
         UserResponseDTO usuario = userService.findByLogin(login);
+        return Response.ok(usuario).build();
+    }
+    
+    @PATCH
+    @Path("/{id}")
+    @RolesAllowed({"Admin","User"})
+    public Response updatePassword(@PathParam("id") Long id, UserDTO receivedEntity) {
+
+        // obtendo o login a partir do token
+        String login = jwt.getSubject();
+        UserResponseDTO usuario = userService.updatePassword(id, login);
 
         return Response.ok(usuario).build();
     }

@@ -26,5 +26,5 @@ public interface UserService {
 
     UserResponseDTO findByLogin(String login);
 
-    UserResponseDTO updatePassword(String username, String oldPassword, String newPassword, String confirmPassword);
+    UserResponseDTO updatePassword(Long id, String username);
 }

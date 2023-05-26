@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
     @Inject
-    HashService hashService;
+    HashServiceImpl hashService;
 
     @Inject
     private Validator validator;
@@ -64,7 +64,9 @@ public class UserServiceImpl implements UserService{
         
         UserEntity entity = new UserEntity();
         entity.setUsername(receivedEntity.username());
-        entity.setPassword(hashService.getHashSenha(receivedEntity.password()));
+        if (receivedEntity.password().equals(receivedEntity.confirmPassword())) {
+            entity.setPassword(hashService.getHashSenha(receivedEntity.confirmPassword()));
+        }
         entity.setRoles(receivedEntity.roles());
         userRepository.persist(entity);
         
@@ -77,17 +79,14 @@ public class UserServiceImpl implements UserService{
         validate(receivedEntity);
 
         UserEntity entity = userRepository.findById(id);
-
-        Set<Role> roles = new HashSet<>();
-        roles.add(Role.USER);
-
+        
         entity.setUsername(receivedEntity.username());
-        entity.setPassword(receivedEntity.password());
-        if(receivedEntity.roles() != null){
-            entity.setRoles(receivedEntity.roles());
-        }else{
-            entity.setRoles(roles);
+        if (receivedEntity.password().equals(receivedEntity.confirmPassword())) {
+            entity.setPassword(hashService.getHashSenha(receivedEntity.confirmPassword()));
         }
+        entity.setPassword(receivedEntity.password());
+        
+        entity.setRoles(receivedEntity.roles());
         return new UserResponseDTO(entity);
     }
 
@@ -122,13 +121,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserResponseDTO updatePassword(String username, String oldPassword, String newPassword, String confirmPassword) {
+    public UserResponseDTO updatePassword(Long id, String username) {
         UserEntity user = userRepository.findByLogin(username);
-        if (user == null)
-            throw new NotFoundException("Usuário não encontrado.");
         
-        
-        return new UserResponseDTO(user);
+        return update(id, new UserDTO(user.getUsername(), user.getPassword(), user.getPassword(), user.getRoles()));
     }
     
 }

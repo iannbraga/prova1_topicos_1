@@ -1,6 +1,6 @@
 package dev.iannbraga.repository;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import dev.iannbraga.model.product.BuyPipe;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;

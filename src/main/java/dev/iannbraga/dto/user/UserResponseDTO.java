@@ -16,12 +16,9 @@ public record UserResponseDTO (
     Set<Role> role,
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    LocalDateTime createdAt,
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    LocalDateTime updatedAt
+    LocalDateTime createdAt
 ){
         public UserResponseDTO(UserEntity entity){        
-            this(entity.getId(), entity.getUsername(), entity.getRoles(), entity.getCreatedAt(), entity.getUpdatedAt());
+            this(entity.getId(), entity.getUsername(), entity.getRoles(), entity.getCreatedAt());
         }
 }

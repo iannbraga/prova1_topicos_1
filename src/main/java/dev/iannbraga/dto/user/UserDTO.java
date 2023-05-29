@@ -2,7 +2,7 @@ package dev.iannbraga.dto.user;
 
 import java.util.Set;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 import dev.iannbraga.model.user.Role;
 

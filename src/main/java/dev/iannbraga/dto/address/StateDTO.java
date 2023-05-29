@@ -1,6 +1,6 @@
 package dev.iannbraga.dto.address;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 
 public record StateDTO(

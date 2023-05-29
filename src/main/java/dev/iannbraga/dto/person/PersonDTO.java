@@ -1,9 +1,9 @@
 package dev.iannbraga.dto.person;
 
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 public record PersonDTO(
     @NotBlank(message = "O campo firstName deve ser informado.")

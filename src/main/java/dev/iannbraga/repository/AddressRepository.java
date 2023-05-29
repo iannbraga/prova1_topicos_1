@@ -2,7 +2,7 @@ package dev.iannbraga.repository;
 
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import dev.iannbraga.model.address.AddressEntity;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;

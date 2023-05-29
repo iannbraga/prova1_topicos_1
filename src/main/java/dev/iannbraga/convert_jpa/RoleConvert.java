@@ -1,7 +1,7 @@
 package dev.iannbraga.convert_jpa;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 import dev.iannbraga.model.user.Role;
 

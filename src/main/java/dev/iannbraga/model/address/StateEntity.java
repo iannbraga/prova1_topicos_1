@@ -1,7 +1,7 @@
 package dev.iannbraga.model.address;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 import dev.iannbraga.model.DefaultEntity;
 import lombok.AllArgsConstructor;

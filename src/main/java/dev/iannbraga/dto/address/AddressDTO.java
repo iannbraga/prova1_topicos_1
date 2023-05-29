@@ -1,7 +1,7 @@
 package dev.iannbraga.dto.address;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record AddressDTO(
     @NotBlank(message = "O campo address deve ser informado.")

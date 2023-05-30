@@ -1,21 +1,14 @@
 package dev.iannbraga;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 import jakarta.inject.Inject;
 
 import org.junit.jupiter.api.Test;
 
-import dev.iannbraga.dto.user.UserDTO;
-import dev.iannbraga.dto.user.UserResponseDTO;
 import dev.iannbraga.service.UserService;
 import io.quarkus.test.junit.QuarkusTest;
 import static org.hamcrest.Matchers.equalTo;
-import io.restassured.http.ContentType;
 
 @QuarkusTest
 public class UserResourceTest {

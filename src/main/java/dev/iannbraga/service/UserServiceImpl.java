@@ -1,6 +1,5 @@
 package dev.iannbraga.service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,7 +14,6 @@ import jakarta.ws.rs.NotFoundException;
 
 import dev.iannbraga.dto.user.UserDTO;
 import dev.iannbraga.dto.user.UserResponseDTO;
-import dev.iannbraga.model.user.Role;
 import dev.iannbraga.model.user.UserEntity;
 import dev.iannbraga.repository.UserRepository;
 

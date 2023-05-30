@@ -60,9 +60,10 @@ public class AddressResource {
         try {
             AddressResponseDTO entity =  addressService.persist(receivedEntity);
             return Response.status(Status.CREATED).entity(entity).build();
+            
         }  catch(ConstraintViolationException e) {
             Result result = new Result(e.getConstraintViolations());
-            return Response.status(Status.NOT_FOUND).entity(result).build();
+            return Response.status(Status.BAD_REQUEST).entity(result).build();
         }
 
     }

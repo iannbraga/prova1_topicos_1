@@ -5,10 +5,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import dev.iannbraga.model.DefaultEntity;
-import lombok.Data;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
-@Data
 @Table(name = "city")
 public class CityEntity extends DefaultEntity{
     

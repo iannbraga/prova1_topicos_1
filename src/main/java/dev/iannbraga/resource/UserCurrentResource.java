@@ -16,7 +16,6 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import dev.iannbraga.dto.user.UserDTO;
 import dev.iannbraga.dto.user.UserResponseDTO;
-import dev.iannbraga.model.user.UserEntity;
 import dev.iannbraga.service.HashService;
 import dev.iannbraga.service.UserService;
 

@@ -14,10 +14,12 @@ import jakarta.persistence.Table;
 import dev.iannbraga.model.DefaultEntity;
 import dev.iannbraga.model.address.AddressEntity;
 import dev.iannbraga.model.user.UserEntity;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
-@Data
 @Table(name = "person")
 public class PersonEntity extends DefaultEntity{
     

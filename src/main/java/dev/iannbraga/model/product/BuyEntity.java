@@ -8,14 +8,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+import lombok.Getter;
+import lombok.Setter;
 import dev.iannbraga.model.DefaultEntity;
 import dev.iannbraga.model.address.AddressEntity;
 import dev.iannbraga.model.person.PersonEntity;
-import lombok.Data;
 
+@Getter
+@Setter
 @Entity
-@Data
 @Table(name = "buy")
 public class BuyEntity extends DefaultEntity {
     

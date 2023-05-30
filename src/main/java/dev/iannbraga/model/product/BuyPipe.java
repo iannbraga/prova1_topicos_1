@@ -6,10 +6,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import dev.iannbraga.model.DefaultEntity;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name = "buy_pipe")
 public class BuyPipe extends DefaultEntity{
     

@@ -1,6 +1,6 @@
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/test/java/dev/iannbraga/PersonResourceTest.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/test/java/dev/iannbraga/AddressResourceTest.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/test/java/dev/iannbraga/StateResourceTest.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/test/java/dev/iannbraga/PipeResourceTest.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/test/java/dev/iannbraga/CityResourceTest.java
-/home/iann/workspace/quarkus-workspace/prova1_topicos_1/src/test/java/dev/iannbraga/UserResourceTest.java
+/home/iannbraga/workspace/quarkus/prova1_topicos_1/src/test/java/dev/iannbraga/PersonResourceTest.java
+/home/iannbraga/workspace/quarkus/prova1_topicos_1/src/test/java/dev/iannbraga/CityResourceTest.java
+/home/iannbraga/workspace/quarkus/prova1_topicos_1/src/test/java/dev/iannbraga/AddressResourceTest.java
+/home/iannbraga/workspace/quarkus/prova1_topicos_1/src/test/java/dev/iannbraga/PipeResourceTest.java
+/home/iannbraga/workspace/quarkus/prova1_topicos_1/src/test/java/dev/iannbraga/StateResourceTest.java
+/home/iannbraga/workspace/quarkus/prova1_topicos_1/src/test/java/dev/iannbraga/UserResourceTest.java

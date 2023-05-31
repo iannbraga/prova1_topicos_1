@@ -9,13 +9,13 @@ insert into city ("name", "state_id") values ('Rio Branco', 1);
 insert into city ("name", "state_id") values ('Cruzeiro do Sul', 1); 
 insert into city ("name", "state_id") values ('Sena Madureira', 1);
 -- Amapá: 
-insert into city ("name", "state_id") values ('Macapá', 3);
-insert into city ("name", "state_id") values ('Santana', 3);
-insert into city ("name", "state_id") values ('Oiapoque', 3);
+insert into city ("name", "state_id") values ('Macapá', 2);
+insert into city ("name", "state_id") values ('Santana', 2);
+insert into city ("name", "state_id") values ('Oiapoque', 2);
 -- Tocantins: 
-insert into city ("name", "state_id") values ('Palmas', 26);
-insert into city ("name", "state_id") values ('Gurupi', 26);
-insert into city ("name", "state_id") values ('Araguaína', 26);
+insert into city ("name", "state_id") values ('Palmas', 3);
+insert into city ("name", "state_id") values ('Gurupi', 3);
+insert into city ("name", "state_id") values ('Araguaína', 3);
 
 -- Cadastrando Produtos
 insert into pipe ("description", "characters", "price", "stock", "status", "material") values ('Cachimbo Dracula','Especial para noites de lua cheia',120,10, 'DISPONIVEL','Madeira Sangue de Virgem');
